@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('contact', [ContactController::class, 'index']);
+Route::post('store-contact-data', [ContactController::class, 'insertContactOnHubSpot']);
+Route::get('get-contact-data', [ContactController::class, 'getContactsFromHubSpot']);
